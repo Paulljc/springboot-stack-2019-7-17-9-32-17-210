@@ -1,18 +1,20 @@
 package com.tw.apistackbase.repository;
 
-import com.tw.apistackbase.entity.Crowncase;
+import com.tw.apistackbase.entity.CrownCase;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CrowncaseRepository extends JpaRepository<Crowncase, Long> {
+public interface CrowncaseRepository extends JpaRepository<CrownCase, Long> {
 
     @Override
-    List<Crowncase> findAll(Sort sort);
+    List<CrownCase> findAll(Sort sort);
 
-    List<Crowncase> findAllByCaseName(String name);
+    List<CrownCase> findAllByCaseName(String name);
 
     @Override
     void deleteById(Long id);
+
+    CrownCase findCrownDetailById(Long id);
 }

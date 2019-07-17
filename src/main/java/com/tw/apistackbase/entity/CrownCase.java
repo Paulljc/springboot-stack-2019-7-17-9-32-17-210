@@ -5,8 +5,8 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "Crowncase")
-public class Crowncase {
+@Table(name = "CrownCase")
+public class CrownCase {
 
     @Id
     @GeneratedValue()
@@ -42,8 +42,15 @@ public class Crowncase {
         this.caseTime = caseTime;
     }
 
-    public Crowncase(@NotNull String caseName, @NotNull Date caseTime) {
+    public CrownCase(@NotNull String caseName, @NotNull Date caseTime) {
         this.caseName = caseName;
         this.caseTime = caseTime;
+    }
+
+    @OneToOne
+    private CrownDetail crownDetail;
+
+    public CrownCase(String caseName) {
+        this.caseName = caseName;
     }
 }
