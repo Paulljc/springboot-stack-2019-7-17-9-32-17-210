@@ -16,7 +16,7 @@ public class CrownCase {
     private String caseName;
 
     @NotNull
-    private Date caseTime;
+    private Long caseTime;
 
     public String getCaseName() {
         return caseName;
@@ -34,20 +34,41 @@ public class CrownCase {
         this.id = id;
     }
 
-    public Date getCaseTime() {
+    public Long getCaseTime() {
         return caseTime;
     }
 
-    public void setCaseTime(Date caseTime) {
+    public void setCaseTime(Long caseTime) {
         this.caseTime = caseTime;
     }
 
-    public CrownCase(@NotNull String caseName, @NotNull Date caseTime) {
-        this.caseName = caseName;
-        this.caseTime = caseTime;
+    public CrownDetail getCrownDetail() {
+        return crownDetail;
+    }
+
+    public void setCrownDetail(CrownDetail crownDetail) {
+        this.crownDetail = crownDetail;
+    }
+
+    public Procuratorate getProcuratorate() {
+        return procuratorate;
+    }
+
+    public void setProcuratorate(Procuratorate procuratorate) {
+        this.procuratorate = procuratorate;
     }
 
     @OneToOne
     private CrownDetail crownDetail;
 
+    @ManyToOne
+    @NotNull
+    private Procuratorate procuratorate;
+
+    public CrownCase(@NotNull String caseName, @NotNull Long caseTime, CrownDetail crownDetail, @NotNull Procuratorate procuratorate) {
+        this.caseName = caseName;
+        this.caseTime = caseTime;
+        this.crownDetail = crownDetail;
+        this.procuratorate = procuratorate;
+    }
 }
