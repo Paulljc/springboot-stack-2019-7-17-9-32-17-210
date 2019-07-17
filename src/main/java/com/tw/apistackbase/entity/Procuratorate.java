@@ -54,4 +54,8 @@ public class Procuratorate {
 
     public Procuratorate() {
     }
+
+    public void addProsecutor(Prosecutor prosecutor) {
+        this.prosecutors.add(prosecutor);
+    }
 }

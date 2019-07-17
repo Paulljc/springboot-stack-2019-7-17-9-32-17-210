@@ -19,7 +19,10 @@ public class CrownDetailRepositoryTest {
 
     @Test
     public void should_return_case_detail_when_find_case_by_id(){
-        CrownDetail crownDetail = detailRepository.findById(2l).get();
-        Assertions.assertNotNull(crownDetail);
+        CrownDetail crownDetail = new CrownDetail("objective", "subjective");
+        CrownDetail saveCrownDetail = detailRepository.save(crownDetail);
+
+        saveCrownDetail = detailRepository.findById(saveCrownDetail.getId()).get();
+        Assertions.assertEquals(crownDetail, saveCrownDetail);
     }
 }
