@@ -36,4 +36,5 @@ public class Prosecutor {
     public Prosecutor(@NotNull String name) {
         this.name = name;
     }
+
 }

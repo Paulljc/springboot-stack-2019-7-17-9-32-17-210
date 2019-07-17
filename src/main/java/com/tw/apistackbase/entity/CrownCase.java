@@ -50,7 +50,4 @@ public class CrownCase {
     @OneToOne
     private CrownDetail crownDetail;
 
-    public CrownCase(String caseName) {
-        this.caseName = caseName;
-    }
 }

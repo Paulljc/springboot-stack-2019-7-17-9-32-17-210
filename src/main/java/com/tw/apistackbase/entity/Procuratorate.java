@@ -19,6 +19,15 @@ public class Procuratorate {
     @OneToMany
     private Set<Prosecutor> prosecutors;
 
+    public Procuratorate(@NotNull String name, Set<Prosecutor> prosecutors) {
+        this.name = name;
+        this.prosecutors = prosecutors;
+    }
+
+    public Procuratorate(@NotNull String name) {
+        this.name = name;
+    }
+
     public Long getId() {
         return id;
     }
