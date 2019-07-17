@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CrowncaseRepository extends JpaRepository<CrownCase, Long> {
+public interface CrownCaseRepository extends JpaRepository<CrownCase, Long> {
 
     @Override
     List<CrownCase> findAll(Sort sort);

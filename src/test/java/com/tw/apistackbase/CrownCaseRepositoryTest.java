@@ -1,7 +1,7 @@
 package com.tw.apistackbase;
 
 import com.tw.apistackbase.entity.CrownCase;
-import com.tw.apistackbase.repository.CrowncaseRepository;
+import com.tw.apistackbase.repository.CrownCaseRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +18,7 @@ import java.util.List;
 public class CrownCaseRepositoryTest {
 
     @Autowired
-    private CrowncaseRepository crowncaseRepository;
+    private CrownCaseRepository crowncaseRepository;
 
     @Test
     public void should_return_case_when_find_by_id() {
