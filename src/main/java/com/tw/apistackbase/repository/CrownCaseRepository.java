@@ -8,8 +8,7 @@ import java.util.List;
 
 public interface CrownCaseRepository extends JpaRepository<CrownCase, Long> {
 
-    @Override
-    List<CrownCase> findAll(Sort sort);
+    List<CrownCase> findByOrderByCaseTimeDesc() ;
 
     List<CrownCase> findAllByCaseName(String name);
 

@@ -17,7 +17,9 @@ public class Procuratorate {
     private String name;
 
     @OneToMany
+    @JoinColumn(name = "procuratorate_id")
     private Set<Prosecutor> prosecutors;
+
 
     public Procuratorate(@NotNull String name, Set<Prosecutor> prosecutors) {
         this.name = name;
