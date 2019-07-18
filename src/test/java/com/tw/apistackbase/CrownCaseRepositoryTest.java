@@ -49,7 +49,7 @@ public class CrownCaseRepositoryTest {
         );
         crowncaseRepository.saveAll(criminalCases);
 
-        List<CrownCase> orderCrownCases = crowncaseRepository.findAll(new Sort(Sort.Direction.ASC, "caseTime"));
+        List<CrownCase> orderCrownCases = crowncaseRepository.findAll(new Sort(Sort.Direction.DESC, "caseTime"));
 
         // then
         Assertions.assertEquals(criminalCases.get(1), orderCrownCases.get(0));
