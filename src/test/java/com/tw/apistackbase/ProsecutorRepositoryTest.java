@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.List;
+
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
 public class ProsecutorRepositoryTest {
@@ -24,12 +26,49 @@ public class ProsecutorRepositoryTest {
     }
 
     @Test
-    public void should_get_procurator_by_id() {
-        Prosecutor prosecutor = new Prosecutor("sa");
-        Prosecutor saveProsecutor= prosecutorRepository.save(prosecutor);
+    public void should_return_procurator_when_find_procurator_by_id() {
+        Prosecutor prosecutor = new Prosecutor("white");
+        Prosecutor prosecutorInDB = prosecutorRepository.save(prosecutor);
 
-        saveProsecutor = prosecutorRepository.findById(saveProsecutor.getId()).get();
+        prosecutorInDB = prosecutorRepository.findById(prosecutorInDB.getId()).get();
 
-        Assertions.assertEquals(prosecutor, saveProsecutor);
+        Assertions.assertEquals(prosecutor, prosecutorInDB);
+    }
+
+    @Test
+    public void should_return_procurator_when_add_procurator(){
+        Prosecutor procurator = new Prosecutor("zha");
+        Prosecutor procuratorateInDB = prosecutorRepository.save(procurator);
+
+        procuratorateInDB = prosecutorRepository.findById(procuratorateInDB.getId()).get();
+
+        Assertions.assertEquals(procurator, procuratorateInDB);
+        Assertions.assertEquals(procurator.getName(), procuratorateInDB.getName());
+    }
+
+    @Test
+    public void should_return_procurator_when_delete_procurator(){
+        Prosecutor prosecutor1 = new Prosecutor("when");
+        Prosecutor prosecutor2 = new Prosecutor("what");
+        prosecutorRepository.save(prosecutor1);
+        prosecutorRepository.save(prosecutor2);
+
+        prosecutorRepository.deleteById(prosecutor1.getId());
+
+        List<Prosecutor> allProsecutor = prosecutorRepository.findAll();
+        Assertions.assertEquals(1, allProsecutor.size());
+        Assertions.assertFalse(allProsecutor.contains(prosecutor1));
+    }
+
+    @Test
+    public void should_return_procurator_when_update_procurator(){
+        Prosecutor procurator = new Prosecutor("zha");
+        prosecutorRepository.save(procurator);
+
+        procurator.setName("oocl");
+        Prosecutor procuratorInDB = prosecutorRepository.saveAndFlush(procurator);
+
+        Assertions.assertEquals(procurator, procuratorInDB);
+        Assertions.assertEquals(procurator.getName(), procuratorInDB.getName());
     }
 }
