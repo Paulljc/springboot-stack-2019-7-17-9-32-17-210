@@ -9,7 +9,7 @@ import java.util.Date;
 public class CrownCase {
 
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull

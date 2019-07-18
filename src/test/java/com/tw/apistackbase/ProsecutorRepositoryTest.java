@@ -38,12 +38,12 @@ public class ProsecutorRepositoryTest {
     @Test
     public void should_return_procurator_when_add_procurator(){
         Prosecutor procurator = new Prosecutor("zha");
-        Prosecutor procuratorateInDB = prosecutorRepository.save(procurator);
+        Prosecutor procuratorInDB = prosecutorRepository.save(procurator);
 
-        procuratorateInDB = prosecutorRepository.findById(procuratorateInDB.getId()).get();
+        procuratorInDB = prosecutorRepository.findById(procuratorInDB.getId()).get();
 
-        Assertions.assertEquals(procurator, procuratorateInDB);
-        Assertions.assertEquals(procurator.getName(), procuratorateInDB.getName());
+        Assertions.assertEquals(procurator, procuratorInDB);
+        Assertions.assertEquals(procurator.getName(), procuratorInDB.getName());
     }
 
     @Test
