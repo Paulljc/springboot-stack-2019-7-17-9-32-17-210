@@ -4,6 +4,7 @@ package com.tw.apistackbase;
 import com.tw.apistackbase.entity.Procuratorate;
 import com.tw.apistackbase.repository.ProcuratorateRepository;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,11 @@ public class ProcuratorateRepositoryTest {
 
     @Autowired
     private ProcuratorateRepository procuratorateRepository;
+
+    @BeforeEach
+    public void clearDB(){
+        procuratorateRepository.deleteAll();
+    }
 
     @Test
     public void should_return_the_procuratorate_when_get_procuratorate_by_id() {

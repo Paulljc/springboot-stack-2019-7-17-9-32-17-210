@@ -3,7 +3,9 @@ package com.tw.apistackbase;
 import com.tw.apistackbase.entity.CrownCase;
 import com.tw.apistackbase.entity.Procuratorate;
 import com.tw.apistackbase.repository.CrownCaseRepository;
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,11 @@ public class CrownCaseRepositoryTest {
 
     @Autowired
     private CrownCaseRepository crowncaseRepository;
+
+    @BeforeEach
+    public void clearDB(){
+        crowncaseRepository.deleteAll();
+    }
 
     @Test
     public void should_return_case_when_find_case_by_id() {
